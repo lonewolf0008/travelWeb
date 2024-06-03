@@ -1,0 +1,52 @@
+<style>
+  .group-btn{
+    border: 1px solid black;
+    color: white;
+    border-radius: 25px;
+    background-color: #fe424d;
+
+  }
+  .group-btn:hover{
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: #fe424d;
+    color: white;
+  }
+</style>
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-route"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/listing">Explore</a>
+      </div>
+      <div class="ms-auto">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search" />
+          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listing/new">Airbnb your home</a>
+        <% if (!currentUser) { %>
+          <div class="btn-group group-btn-div">
+            <a class=" btn group-btn" href="/signup"><b>Signup</b></a>
+            <a class=" btn group-btn" href="/login"><b>Login</b></a>
+          </div>
+        <% } %> <% if (currentUser) { %>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle border rounded-pill me-3 logout-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Hello <%= currentUser.username %>
+        </button>
+          <div class="dropdown-menu">
+            <a class="btn btn-danger dropdown-item " href="/logout"><b>Logout</b></a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+  </div>
+</nav>
